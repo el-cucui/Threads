@@ -10,7 +10,7 @@ void *thread_function(void *arg)
     {
         a++;
     }
-    return NULL;
+    return (void *)a;
 }
 
 int main()
@@ -22,7 +22,10 @@ int main()
     rt = pthread_create(&pt2, NULL, thread_function, (void *)"B");
     if (rt != 0)
         cout << "Error in pthread creation 2\n";
-    pthread_join(pt, NULL);
-    pthread_join(pt2, NULL);
+    int x;
+    pthread_join(pt, (void **)&x);
+    cout << "A: " << x << endl;
+    pthread_join(pt2, (void **)&x);
+    cout << "B: " << x << endl;
     cout << a << endl;
 }
