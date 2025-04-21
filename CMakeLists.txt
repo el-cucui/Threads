@@ -4,3 +4,4 @@ PROJECT(Threads VERSION 1.0
     DESCRIPTION "Threads"
     LANGUAGES CXX)
 ADD_EXECUTABLE(simple_thread simple_thread.cpp)
+ADD_EXECUTABLE(simple_lock simple_locks.cpp)
